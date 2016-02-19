@@ -2,6 +2,7 @@
 Creates a spine .json file from an image sequence.
 
 #Usage
+```
 spine_sequence.py [-h] --output JSON_FILE --images WILDCARD_PATH
                  [--images_root FOLDER_PATH] [--merge SPINE_JSON_FILE]
                  [--bone NAME] [--framerate NUMBER]
@@ -24,3 +25,4 @@ optional arguments:
   --bone NAME           (Optional, default is "root") Bone name to attach to.
                         Example: "my_bone"
   --framerate NUMBER    (Optional, default is 30) Framerate to animate at.
+```
