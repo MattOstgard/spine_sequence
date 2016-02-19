@@ -1,5 +1,5 @@
 # spine_sequence.py
-Creates a spine .json file from an image sequence.
+Add an image sequence to an Esoteric Spine skeleton.
 
 #Usage
 ```
