@@ -1,7 +1,10 @@
 # spine_sequence.py
 Add an image sequence to an Esoteric Spine skeleton.
 
-#Usage
+#Installation and Usage
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/c9-UdM7oHKg/0.jpg)](http://www.youtube.com/watch?v=c9-UdM7oHKg)
+- Requires Python 2.7 or above. Mac users have this installed by default. Windows users will have to download: https://www.python.org/downloads/
+- Usage (same as --help argument):
 ```
 spine_sequence.py [-h] --output JSON_FILE --images WILDCARD_PATH
                  [--images_root FOLDER_PATH] [--merge SPINE_JSON_FILE]
