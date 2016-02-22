@@ -248,7 +248,7 @@ class SpineSequence:
 
     def round_time_like_spine(self, time):
         # Floor to 4 decimal points
-        time = int(time * 10000) / 10000
+        time = int(time * 10000) / 10000.0
         
         # Remove decimals for whole numbers
         if time == int(time):
