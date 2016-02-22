@@ -57,7 +57,7 @@ def main():
         help='Output .json file: Example: "my_image_sequence.json"'
     )
     
-    parser.add_argument('--images', metavar='WILDCARD_PATH', required=True,
+    parser.add_argument('--images', metavar='WILDCARD_PATH', required=True, nargs='+',
         help='Wildcard path to image sequence. This is relative to --images_root_path. Example: "my_images/*.png"'
     )
     
@@ -85,8 +85,10 @@ def main():
     print()
 
     # Get images from wildcard argument
-    full_images_path = os.path.join(args.images_root, args.images)
-    globbed_paths = glob(full_images_path)
+    globbed_paths = []
+    for glob_pattern in args.images:
+        glob_pattern = os.path.join(args.images_root, glob_pattern)
+        globbed_paths += glob(glob_pattern)
     
     # Make image paths relative to image root
     image_paths = []
@@ -95,7 +97,7 @@ def main():
 
     if len(image_paths) == 0:
         print(' - No images to process!')
-        print('No images found in supplied path: {}'.format(full_images_path))
+        print('No images found in supplied path.')
         print('Please verify --images and --images_root arguments are correct.\n')
         return False
 
@@ -103,7 +105,7 @@ def main():
     width, height = get_image_size(globbed_paths[0])
 
     # Full images path
-    print(' - {} images found in {}\n'.format(len(image_paths), full_images_path))
+    print(' - {} images found.'.format(len(image_paths)))
 
     # Do the actual work
     spineSeq = SpineSequence(image_paths, width, height, args.merge, args.bone, args.framerate)
